@@ -283,6 +283,7 @@
     var k = i + dxContour[cval];
     var l = j + dyContour[cval];
     var prev_cval = cval;
+    let hackIndex = 0
 
     while((k >= 0) && (l >= 0) && (l < maxj) && ((k != i) || (l != j))){
       currentCell = grid[l][k];
@@ -290,6 +291,7 @@
         //console.log(k + " " + l + " is undefined, stopping path!");
         break;
       }
+      if (hackIndex === 1000) break;
       cval = currentCell.cval;
       if((cval === 0) || (cval === 15)){
         return { path: p, info: "mergeable" };
@@ -343,6 +345,7 @@
       k += dx;
       l += dy;
       prev_cval = cval;
+      hackIndex += 1;
     }
 
     return { path: p, info: "closed" };
