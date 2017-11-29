@@ -283,7 +283,7 @@
     var k = i + dxContour[cval];
     var l = j + dyContour[cval];
     var prev_cval = cval;
-    let hackIndex = 0
+    var hackIndex = 0
 
     while((k >= 0) && (l >= 0) && (l < maxj) && ((k != i) || (l != j))){
       currentCell = grid[l][k];
